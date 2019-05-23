@@ -1,0 +1,16 @@
+PODS:
+  - ViewCellMatchAndBanner (0.1.0)
+
+DEPENDENCIES:
+  - ViewCellMatchAndBanner (from `../`)
+
+EXTERNAL SOURCES:
+  ViewCellMatchAndBanner:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ViewCellMatchAndBanner: d2e75e7d6378d9fcc53ba197f0726cdf4212fd2c
+
+PODFILE CHECKSUM: 0164010e5e66bdad0f09e237faa0ae40648c6ae0
+
+COCOAPODS: 1.6.1

@@ -1,0 +1,6 @@
+framework module ViewCellMatchAndBanner {
+  umbrella header "ViewCellMatchAndBanner-umbrella.h"
+
+  export *
+  module * { export * }
+}
