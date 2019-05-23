@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ViewCellMatchAndBanner_Example' do
+  pod 'ViewCellMatchAndBanner', :path => '../'
+
+  target 'ViewCellMatchAndBanner_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
