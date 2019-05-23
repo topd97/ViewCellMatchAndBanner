@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'ViewCellMatchAndBanner'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of ViewCellMatchAndBanner.'
+  s.summary          = 'A Table view With Match and Banner'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,8 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+The pod contains a Table with Match and Banners.
+To 4 Match, we have 1 banner.
                        DESC
 
   s.homepage         = 'https://github.com/topd97/ViewCellMatchAndBanner'
@@ -31,7 +32,8 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'ViewCellMatchAndBanner/Classes/**/*'
-  
+  s.swift_version = '4.0'
+
   # s.resource_bundles = {
   #   'ViewCellMatchAndBanner' => ['ViewCellMatchAndBanner/Assets/*.png']
   # }
