@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ViewCellMatchAndBanner: d2e75e7d6378d9fcc53ba197f0726cdf4212fd2c
+  ViewCellMatchAndBanner: 7c998c8bbaf99d16060abb6e24a3bdf0ce993a7b
 
 PODFILE CHECKSUM: 0164010e5e66bdad0f09e237faa0ae40648c6ae0
 

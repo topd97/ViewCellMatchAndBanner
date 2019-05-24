@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import ViewCellMatchAndBanner
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var collectionView: CollectionViewWhitBanner!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.configure(cellType: BannerCollectionViewCell.self)
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 

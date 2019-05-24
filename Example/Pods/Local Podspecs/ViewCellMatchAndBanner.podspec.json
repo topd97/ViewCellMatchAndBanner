@@ -1,8 +1,8 @@
 {
   "name": "ViewCellMatchAndBanner",
   "version": "0.1.0",
-  "summary": "A short description of ViewCellMatchAndBanner.",
-  "description": "TODO: Add long description of the pod here.",
+  "summary": "A Table view With Match and Banner",
+  "description": "The pod contains a Table with Match and Banners.\nTo 4 Match, we have 1 banner.",
   "homepage": "https://github.com/topd97/ViewCellMatchAndBanner",
   "license": {
     "type": "MIT",
@@ -16,7 +16,8 @@
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
-  "source_files": "ViewCellMatchAndBanner/Classes/**/*"
+  "source_files": "ViewCellMatchAndBanner/Classes/**/*",
+  "swift_version": "4.0"
 }
