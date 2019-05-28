@@ -7,22 +7,25 @@
 
 import Foundation
 
-protocol MatchAndBannerCollectionViewDatasourceDelegate: UIScrollViewDelegate {
-    func didSelectMove(_ cell: UICollectionViewCell)
+public protocol MatchAndBannerCollectionViewDatasourceProtocol: UIScrollViewDelegate {
+    func setupCell(cell: UICollectionViewCell, infos: Infos) -> UICollectionViewCell
+}
+
+public struct Infos{
+    public var qualquer: Int
 }
 
 enum Cells{
-    case match (_ match: UICollectionViewCell)
+    case infos (_ infos: Infos)
     case banner
 }
 
 public class MatchAndBannerCollectionDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
     var cells: [Cells] = []
+    var infos: [Infos] = []
     
     weak var collectionView: UICollectionView!
-    weak var collectionViewDelegate: MatchAndBannerCollectionViewDatasourceDelegate?
-    
-    
+    public weak var collectionViewDelegate: MatchAndBannerCollectionViewDatasourceProtocol?
     
     init(view collectionView:UICollectionView, cellType: UICollectionViewCell.Type) {
         super.init()
@@ -40,13 +43,13 @@ public class MatchAndBannerCollectionDataSource: NSObject, UICollectionViewDataS
         let nibname = UINib(nibName: cellName, bundle: cellBundle)
         self.collectionView?.register(nibname, forCellWithReuseIdentifier: "Cell")
         
-        let nibAd = UINib(nibName: "BannerCollectionViewCell", bundle: cellBundle)
+        let nibAd = UINib(nibName: "BannerCollectionViewCell", bundle: Bundle.init(for: BannerCollectionViewCell.classForCoder()))
         self.collectionView?.register(nibAd, forCellWithReuseIdentifier: "Banner")
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if case let Cells.match(match) = cells[indexPath.item] {
-            self.collectionViewDelegate?.didSelectMove(match)
+    private func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if case let Cells.infos(match) = cells[indexPath.item] {
+//            self.collectionViewDelegate?.didSelectMove(match)
         }
         
     }
@@ -57,32 +60,34 @@ public class MatchAndBannerCollectionDataSource: NSObject, UICollectionViewDataS
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if case let Cells.match(match) = cells[indexPath.item] {
+        if case Cells.infos(_) = cells[indexPath.item] {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+            self.collectionViewDelegate?.setupCell(cell: cell, infos: Infos.init(qualquer: 1))
             return cell
         }
         else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Banner", for: indexPath)
-            return cell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Banner", for: indexPath) as? BannerCollectionViewCell
+            return cell!
         }
     }
     
-    func reloadData(with cells: [UICollectionViewCell]) {
-        self.atualizaEnum(cells: cells)
+    func reloadData(with cells: [Infos]) {
+        self.infos = cells
+        self.atualizaEnum()
         self.collectionView.reloadData()
         
     }
     
-    func atualizaEnum(cells: [UICollectionViewCell]) {
+    func atualizaEnum() {
         self.cells = []
-        var cellsData = cells
+        var cellsData = infos
         var videoCount = 0
         var posBanner = 4
         
         while (!cellsData.isEmpty)
         {
-            self.cells.append(.match(cellsData.removeFirst()))
+            self.cells.append(.infos(cellsData.removeFirst()))
             videoCount+=1
             if(videoCount == posBanner) {
                 videoCount = 0

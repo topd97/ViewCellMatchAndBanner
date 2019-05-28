@@ -13,13 +13,45 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="BannerCollectionViewCell" customModule="ViewCellMatchAndBanner" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="340" height="128"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="340" height="128"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZhR-WY-K4C">
+                        <rect key="frame" x="0.0" y="0.0" width="340" height="128"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eu sou um Banner" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZ9-Yp-eol">
+                                <rect key="frame" x="10" y="54" width="320" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="YZ9-Yp-eol" secondAttribute="trailing" constant="10" id="Bgf-N0-AGE"/>
+                            <constraint firstItem="YZ9-Yp-eol" firstAttribute="centerX" secondItem="ZhR-WY-K4C" secondAttribute="centerX" id="ccX-eg-Ayz"/>
+                            <constraint firstItem="YZ9-Yp-eol" firstAttribute="centerY" secondItem="ZhR-WY-K4C" secondAttribute="centerY" id="dDL-X1-WDe"/>
+                            <constraint firstItem="YZ9-Yp-eol" firstAttribute="leading" secondItem="ZhR-WY-K4C" secondAttribute="leading" constant="10" id="gOw-RO-dUJ"/>
+                        </constraints>
+                    </view>
+                </subviews>
             </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ZhR-WY-K4C" secondAttribute="trailing" id="EsF-1R-Xhp"/>
+                <constraint firstItem="ZhR-WY-K4C" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Pwv-Re-nRO"/>
+                <constraint firstAttribute="bottom" secondItem="ZhR-WY-K4C" secondAttribute="bottom" id="mgr-v4-61N"/>
+                <constraint firstItem="ZhR-WY-K4C" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wKO-Kk-JwO"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="340" height="128"/>
+            <connections>
+                <outlet property="label" destination="YZ9-Yp-eol" id="4Kc-LB-w2O"/>
+                <outlet property="view" destination="ZhR-WY-K4C" id="h37-TX-kUy"/>
+            </connections>
+            <point key="canvasLocation" x="369.60000000000002" y="189.80509745127438"/>
         </collectionViewCell>
     </objects>
 </document>
