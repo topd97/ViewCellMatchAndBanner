@@ -9,7 +9,7 @@ import Foundation
 public class CollectionViewWhitBannerInteractor{
 
     public var dataSourceDelegate: MatchAndBannerCollectionDataSource?
-    public var dataSOurceProtocol: MatchAndBannerCollectionViewDatasourceProtocol?
+    public var viewControllerDelegate: MatchAndBannerCollectionViewDatasourceProtocol?
 
     public init(){
         //DO NOTHING
@@ -18,6 +18,7 @@ public class CollectionViewWhitBannerInteractor{
     public func configure(view: UICollectionView ,cellType: UICollectionViewCell.Type) {
         self.dataSourceDelegate = MatchAndBannerCollectionDataSource.init(view: view, cellType: cellType)
         view.dataSource = dataSourceDelegate
+        self.dataSourceDelegate?.collectionViewDelegate = self.viewControllerDelegate
     }
 
     public func insertItensInCollectionView(itens cells: [Int]){

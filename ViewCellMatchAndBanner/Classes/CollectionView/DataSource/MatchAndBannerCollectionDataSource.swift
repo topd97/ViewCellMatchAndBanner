@@ -60,10 +60,10 @@ public class MatchAndBannerCollectionDataSource: NSObject, UICollectionViewDataS
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if case Cells.infos(_) = cells[indexPath.item] {
+        if case let Cells.infos(infos) = cells[indexPath.item] {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-            self.collectionViewDelegate?.setupCell(cell: cell, infos: Infos.init(qualquer: 1))
+            self.collectionViewDelegate?.setupCell(cell: cell, infos: infos)
             return cell
         }
         else {
