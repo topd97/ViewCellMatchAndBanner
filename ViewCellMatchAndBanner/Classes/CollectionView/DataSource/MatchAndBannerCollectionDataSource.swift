@@ -87,13 +87,13 @@ public class MatchAndBannerCollectionDataSource: NSObject, UICollectionViewDataS
         
         while (!cellsData.isEmpty)
         {
-            self.cells.append(.infos(cellsData.removeFirst()))
-            videoCount+=1
             if(videoCount == posBanner) {
                 videoCount = 0
                 posBanner = 5
                 self.cells.append(.banner)
             }
+            self.cells.append(.infos(cellsData.removeFirst()))
+            videoCount+=1
         }
     }
     
