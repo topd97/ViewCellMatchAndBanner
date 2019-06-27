@@ -10,6 +10,7 @@ import UIKit
 import ViewCellMatchAndBanner
 
 class ViewController: UICollectionViewController, MatchAndBannerCollectionViewDatasourceProtocol {
+
     @IBOutlet var collectionViewWhitBanner: CollectionViewWhitBanner!
     
     var collectionViewInteractor = CollectionViewWhitBannerInteractor.init()
@@ -22,9 +23,9 @@ class ViewController: UICollectionViewController, MatchAndBannerCollectionViewDa
         collectionViewInteractor.insertItensInCollectionView(itens: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19])
     }
 
-    func setupCell(cell: UICollectionViewCell, infos: Infos) -> UICollectionViewCell {
+    func setupCell(cell: UICollectionViewCell, infosOfCell: InfosOfCell) -> UICollectionViewCell {
         if let cellToSetup = cell as? CollectionViewCellExample{
-            return cellToSetup.changeText(texto: String(infos.qualquer))
+            return cellToSetup.changeText(texto: String(infosOfCell.anyNumber))
         }
         return UICollectionViewCell.init()
     }

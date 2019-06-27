@@ -12,9 +12,8 @@ public class CollectionViewWhitBannerInteractor{
     public var viewControllerDelegate: MatchAndBannerCollectionViewDatasourceProtocol?
 
     public init(){
-        //DO NOTHING
+        
     }
-    
     public func configure(view: UICollectionView ,cellType: UICollectionViewCell.Type) {
         self.dataSourceDelegate = MatchAndBannerCollectionDataSource.init(view: view, cellType: cellType)
         view.dataSource = dataSourceDelegate
@@ -22,10 +21,10 @@ public class CollectionViewWhitBannerInteractor{
     }
 
     public func insertItensInCollectionView(itens cells: [Int]){
-        var itensToInsert:[Infos] = []
+        var itensToInsert:[InfosOfCell] = []
         
         for item in cells {
-            itensToInsert.append(Infos.init(qualquer: item))
+            itensToInsert.append(InfosOfCell.init(anyNumber: item))
         }
         self.dataSourceDelegate?.reloadData(with: itensToInsert)
     }
